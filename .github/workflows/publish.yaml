@@ -40,4 +40,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args:
-            - GOSUNGROW_VERSION=3.0.7
+            - "GOSUNGROW_VERSION=3.0.7"
