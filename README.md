@@ -5,6 +5,8 @@ This repository contains Hass.io add-ons. All add-ons in this repository are tes
 Just put this in your compose file ay?
 
 ```yaml
+
+
   hassio_sungrow:
     image: ghcr.io/tgxn/sungrowcompose:main
     networks:
@@ -12,6 +14,7 @@ Just put this in your compose file ay?
     restart: always
     environment:
       TEST_INTERVAL: 900
+      TZ: Australia/Perth
 
       GOSUNGROW_APPKEY: "93D72E60331ABDCDC7B39ADC2D1F32B3"
       GOSUNGROW_DEBUG: false

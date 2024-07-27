@@ -1,9 +1,11 @@
 FROM alpine:latest
 
+ARG GOSUNGROW_VERSION=3.0.7
+
 USER root
 
 RUN apk add --no-cache wget curl colordiff tzdata \
-    && wget -O GoSungrow-linux_amd64.tar.gz https://github.com/MickMake/GoSungrow/releases/download/v3.0.7/GoSungrow-linux_amd64.tar.gz \
+    && wget -O GoSungrow-linux_amd64.tar.gz https://github.com/MickMake/GoSungrow/releases/download/v${GOSUNGROW_VERSION}/GoSungrow-linux_amd64.tar.gz \
     && tar zxvf GoSungrow-linux_amd64.tar.gz \
     && rm GoSungrow-linux_amd64.tar.gz \
     && mv GoSungrow /usr/bin/ \
@@ -16,4 +18,9 @@ RUN mkdir /opt/GoSungrow
 
 WORKDIR /opt/GoSungrow
 
-CMD ["GoSungrow", "cron", "run", "00", "07", ".", ".", ".", "sync", "default"]
+COPY ./summadat/run.sh ./run.sh
+
+RUN chmod +x ./run.sh
+
+# CMD ["GoSungrow", "cron", "run", "00", "07", ".", ".", ".", "sync", "default"]
+CMD ./run.sh
