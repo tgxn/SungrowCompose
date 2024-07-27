@@ -6,7 +6,7 @@ Just put this in your compose file ay?
 
 ```yaml
   hassio_sungrow:
-    image: TODO
+    image: ghcr.io/tgxn/sungrowcompose:main
     networks:
       - mqtt-net
     restart: always
