@@ -5,7 +5,9 @@ This repository contains Hass.io add-ons. All add-ons in this repository are tes
 Just put this in your compose file ay?
 
 ```yaml
-
+services:
+  
+  ...
 
   hassio_sungrow:
     image: ghcr.io/tgxn/sungrowcompose:main
@@ -13,10 +15,13 @@ Just put this in your compose file ay?
       - mqtt-net
     restart: always
     environment:
+      # int seconds
       TEST_INTERVAL: 900
       TZ: Australia/Perth
 
+      # read this: https://gist.github.com/Paraphraser/cad3b0aa6428c58ee87bc835ac12ed37#part4
       GOSUNGROW_APPKEY: "93D72E60331ABDCDC7B39ADC2D1F32B3"
+
       GOSUNGROW_DEBUG: false
       GOSUNGROW_HOST: "https://augateway.isolarcloud.com"
 

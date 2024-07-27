@@ -11,11 +11,11 @@ do
 
 	echo "Run the "sun grow" ..."
 
-    /usr/local/bin/GoSungrow config write
+    /usr/bin/GoSungrow config write
 
-    /usr/local/bin/GoSungrow api login
+    /usr/bin/GoSungrow api login
 
-    /usr/local/bin/GoSungrow mqtt run 
+    /usr/bin/GoSungrow mqtt run 
 
 	END_TIMESTAMP=$(date "+%s")
 	DELTA=$(( INTERVAL - (END_TIMESTAMP - TIMESTAMP) ))
