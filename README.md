@@ -15,8 +15,6 @@ services:
       - mqtt-net
     restart: always
     environment:
-      # int seconds
-      TEST_INTERVAL: 900
       TZ: Australia/Perth
 
       # read this: https://gist.github.com/Paraphraser/cad3b0aa6428c58ee87bc835ac12ed37#part4
