@@ -1,6 +1,32 @@
 
 # Hassio add-on Repository
-This repository contains Hass.io add-ons. All add-ons in this repository are tested on Hass.io, Home Assistant Core installation is not supported.
+This repository contains Hass.io add-ons. All add-ons in this repository are tested on Hass.io, Home Assistant Core installation is ~not~ supported.
+
+Just put this in your compose file ay?
+
+```yaml
+  hassio_sungrow:
+    image: TODO
+    networks:
+      - mqtt-net
+    restart: always
+    environment:
+      TEST_INTERVAL: 900
+
+      GOSUNGROW_APPKEY: "93D72E60331ABDCDC7B39ADC2D1F32B3"
+      GOSUNGROW_DEBUG: false
+      GOSUNGROW_HOST: "https://augateway.isolarcloud.com"
+
+      GOSUNGROW_USER: "FILL_ME"
+      GOSUNGROW_PASSWORD: "FILL_ME"
+      GOSUNGROW_TIMEOUT: 60
+
+      GOSUNGROW_MQTT_HOST: mosquitto
+      GOSUNGROW_MQTT_PORT: 1883
+      GOSUNGROW_MQTT_USER: "FILL_ME"
+      GOSUNGROW_MQTT_PASSWORD: "FILL_ME"
+
+```
 
 ### Installation
 1. Navigate in your Home Assistant frontend to <kbd>Supervisor</kbd> -> <kbd>Add-on Store</kbd>.
